@@ -1,19 +1,22 @@
 #!/bin/bash
-dir=$1
-file_size=$2
-if [ $# -ne 2 ]
+function a {
+local a=$1;
+local b=$2;
+
+
+if [[ $# -ne 2 ]];
 then
-    echo "usage: rm_n.sh <dir> n"
-    exit
-fi
-for file in `ls $dir`
-do
-  if [ -f "$file" ];then
-   echo $file
-   size=$(wc -c < $file)
-   if [ $size -gt $file_size ];then
-     rm -rf $file
-     echo "$file size : $size is removed."
-   fi
-  fi
-done
+        echo "Usage: $0 <dir> <n>" 1>&2;
+        exit 0;
+fi;
+
+mysize=$(find "$a" -size +"$b"c -type f);
+echo $mysize;
+
+rm $mysize;
+
+}
+
+a $1 $2
+
+
