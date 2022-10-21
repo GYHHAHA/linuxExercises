@@ -1,5 +1,4 @@
 #!/bin/bash
-rm -r five
 mkdir five
 cd five
 
