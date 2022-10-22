@@ -7,5 +7,5 @@ do
   sum=$(($sum+$i))
   counter=$(($counter+1))
 done
-average=$((sum/$counter))
-echo "the average of the TotalAssessedValue $average"
+echo "Sum: $sum";
+echo "Average: $(echo "$sum / $counter" | bc -l)";
